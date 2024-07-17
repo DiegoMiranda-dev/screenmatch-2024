@@ -22,6 +22,9 @@ ScreenMatch es una aplicación web para buscar y mostrar series y sus episodios.
 - **API REST**: Interfaz para la comunicación entre el front-end y el back-end.
 
 ## Vista Previa
-![Captura de pantalla 2024-07-16 194710](https://github.com/user-attachments/assets/8dfce505-92f1-46bb-a596-10da403f4ec6)
-![Captura de pantalla 2024-07-16 194717](https://github.com/user-attachments/assets/27fe44b0-8708-4a69-8989-42852c894666)
-![Captura de pantalla 2024-07-16 194641](https://github.com/user-attachments/assets/790de75f-14f3-469f-a4d4-931945e0f415)
+![Captura de pantalla 2024-07-16 224845](https://github.com/user-attachments/assets/3952977a-8048-4fd0-a765-5a3ae3d5a900)
+![Captura de pantalla 2024-07-16 224932](https://github.com/user-attachments/assets/c404ddba-b250-4a93-9e02-b38c17479046)
+![Captura de pantalla 2024-07-16 224812](https://github.com/user-attachments/assets/e42db7be-d770-4301-9614-00e5bb47d71a)
+![Captura de pantalla 2024-07-16 225026](https://github.com/user-attachments/assets/ddbfabaa-c3c8-4b11-89b9-96ee9cd2b49e)
+![Captura de pantalla 2024-07-16 225036](https://github.com/user-attachments/assets/1b89836d-3f39-4f94-b32a-73ff1efcd90a)
+
