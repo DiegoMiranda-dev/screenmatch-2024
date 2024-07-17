@@ -21,7 +21,7 @@ public class SerieController {
     private SerieService servicio;
 
 
-    @GetMapping()
+    @GetMapping
     public List<SerieDTO> obtenerTodasLasSeries() {
         return servicio.obtenerTodasLasSeries();
     }
