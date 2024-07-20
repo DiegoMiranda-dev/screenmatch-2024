@@ -3,6 +3,7 @@ package com.aluracursos.screenmatch.model;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.OptionalDouble;
 
 @Entity
@@ -28,12 +29,14 @@ public class Serie {
     public Serie(DatosSerie datosSerie){
         this.titulo = datosSerie.titulo();
         this.totalTemporadas = datosSerie.totalTemporadas();
-        this.evaluacion = OptionalDouble.of(Double.valueOf(datosSerie.evaluacion())).orElse(0);
+        this.evaluacion = Double.valueOf(datosSerie.evaluacion());
         this.poster = datosSerie.poster();
-        this.genero = Categoria.fromString(datosSerie.genero().split(",")[0].trim());
+        this.genero = Categoria.valueOf(datosSerie.genero());
         this.actores = datosSerie.actores();
         this.sinopsis = datosSerie.sinopsis();
     }
+
+
 
     @Override
     public String toString() {

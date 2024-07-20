@@ -16,7 +16,7 @@ public class Principal {
     private Scanner teclado = new Scanner(System.in);
     private ConsumoAPI consumoApi = new ConsumoAPI();
     private final String URL_BASE = "https://www.omdbapi.com/?t=";
-    private final String API_KEY = System.getenv("SC_API_KEY");
+    private final String API_KEY = System.getenv("SM_API_KEY");
     private ConvierteDatos conversor = new ConvierteDatos();
     private List<DatosSerie> datosSeries = new ArrayList<>();
     private SerieRepository repositorio;
@@ -25,7 +25,6 @@ public class Principal {
     public Principal(SerieRepository repository) {
         this.repositorio = repository;
     }
-
 
 
     public void muestraElMenu() {
@@ -66,8 +65,15 @@ public class Principal {
         System.out.println("Escribe el nombre de la serie que deseas buscar");
         var nombreSerie = teclado.nextLine();
         var json = consumoApi.obtenerDatos(URL_BASE + nombreSerie.replace(" ", "+") + API_KEY);
-        DatosSerie datos = conversor.obtenerDatos(json, DatosSerie.class);
-        return datos;
+        System.out.println(json);
+        if (json == null || json.trim().isEmpty())  {
+            System.out.println("No se encontró la serie. \uD83D\uDE22");
+            return null;
+        }
+        return conversor.obtenerDatos(json, DatosSerie.class);
+
+
+
     }
 
     private void buscarEpisodioPorSerie() {
@@ -104,18 +110,15 @@ public class Principal {
 
     private void buscarSerieWeb() {
         DatosSerie datos = getDatosSerie();
-        if (datos == null) {
-            System.out.println("No se encontraron datos");
-            return;
-        }
         Serie serieExistente = repositorio.findByTitulo(datos.titulo()).orElse(null);
-        if (serieExistente != null) {
+            if (serieExistente != null) {
             System.out.println("La serie " + datos.titulo() + " ya está en el sistema.");
         } else {
             Serie serie = new Serie(datos);
             repositorio.save(serie);
-
+            System.out.println("Serie " + "\"" + datos.titulo() + "\"" + " guardada en el registro. \uD83D\uDE80");
         }
+
     }
 
     private void mostrarSeriesBuscadas() {
